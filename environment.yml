@@ -3,6 +3,7 @@ channels:
   - defaults
 dependencies:
   - matplotlib
+  - scikit-learn
   - numpy
   - pandas
   - tensorboard >= 1.11
