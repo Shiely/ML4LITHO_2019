@@ -1,0 +1,6 @@
+name: ML4Litho
+channels:
+  - defaults
+dependencies:
+  - matplotlib
+  - numpy
