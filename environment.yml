@@ -10,4 +10,4 @@ dependencies:
   - tensorflow >= 1.12
   - pip:
     - beholder
-
+    - jupyter-tensorboard
