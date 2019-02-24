@@ -1,6 +1,7 @@
 name: ML4Litho
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - zipfile
   - matplotlib
