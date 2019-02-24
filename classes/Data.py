@@ -19,7 +19,7 @@ def loadResNIST_legacy(DATADIR, patch_size):
 	return train_data, train_labels, eval_data, eval_labels
 
 	
-def loadResNIST(DATADIR, image_size, train_images, eval_images):
+def loadResNIST(DATADIR): #, image_size, train_images, eval_images):
 	import zipfile
 	import numpy as np
 	datafiles = ['train_images', 'train_labels', 'eval_images', 'eval_labels']
@@ -30,6 +30,6 @@ def loadResNIST(DATADIR, image_size, train_images, eval_images):
 	train_data = np.load(DATADIR+'/balanced_train_data.npy')
 	train_labels = np.load(DATADIR+'/balanced_train_labels.npy')
 	eval_data = np.load(DATADIR+'/balanced_eval_data.npy') 
-	eval_labels = np.load(DATADIR+'/balanced_eval_labels.npy') 
-
-	return train_data[:train_images], train_labels[:train_images], eval_data[:eval_images], eval_labels[:eval_images]
+	eval_labels = np.load(DATADIR+'/balanced_eval_labels.npy')
+	#print(np.bincount(train_labels[-train_images:]),np.bincount(eval_labels[-eval_images:]))
+	return train_data, train_labels, eval_data, eval_labels
