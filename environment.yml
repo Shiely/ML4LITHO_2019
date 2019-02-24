@@ -1,7 +1,6 @@
 name: ML4Litho
 channels:
   - defaults
-  - conda-forge
 dependencies:
   - matplotlib
   - scikit-learn
