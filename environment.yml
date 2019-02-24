@@ -2,7 +2,7 @@ name: ML4Litho
 channels:
   - defaults
 dependencies:
-  - zipfile
+  - zipfile36
   - matplotlib
   - scikit-learn
   - numpy
