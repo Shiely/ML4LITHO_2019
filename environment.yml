@@ -7,7 +7,7 @@ dependencies:
   - scikit-learn
   - numpy
   - pandas
-  - tensorboard >= 1.11
+  - tensorboard >= 1.12
   - tensorflow >= 1.12
   - pip:
     - beholder

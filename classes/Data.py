@@ -19,12 +19,18 @@ def loadResNIST_legacy(DATADIR, patch_size):
 	return train_data, train_labels, eval_data, eval_labels
 
 	
-def loadResNIST(DATADIR, patch_size):
+def loadResNIST(DATADIR):
+	num_elements=100
+	import zipfile
+	import numpy as np
+	datafiles = ['train_images', 'train_labels', 'eval_images', 'eval_labels']
+	for file in datafiles:
+		file_ref = zipfile.ZipFile( DATADIR + file + '.zip', 'r' )
+		file_ref.extractall('./resNIST')
+		file_ref.close()
+	train_data = np.load(DATADIR+'/balanced_train_data.npy')
+	train_labels = np.load(DATADIR+'/balanced_train_labels.npy')
+	eval_data = np.load(DATADIR+'/balanced_eval_data.npy') 
+	eval_labels = np.load(DATADIR+'/balanced_eval_labels.npy') 
 
-
-	train_data = np.concatenate((np.load(DATADIR+'/mini_train_data1.npy'),np.load(DATADIR+'/mini_train_data2.npy')),axis=0) 
-	train_labels = np.concatenate((np.load(DATADIR+'/mini_train_labels1.npy'),np.load(DATADIR+'/mini_train_labels2.npy')),axis=0) 
-	eval_data = np.load(DATADIR+'/mini_eval_data.npy') 
-	eval_labels = np.load(DATADIR+'/mini_eval_labels.npy') 
-
-	return train_data, train_labels, eval_data, eval_labels
+	return train_data[:num_elements], train_labels[:num_elements], eval_data[:num_elements], eval_labels[:num_elements]
